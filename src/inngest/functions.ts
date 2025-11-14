@@ -27,7 +27,7 @@ export const codeAgentFunction = inngest.createFunction(
       description: "An expert coding agent",
       system: PROMPT,
       model: openai({
-        model: "openrouter/polaris-alpha", // Use OpenRouter's model format
+        model: "kwaipilot/kat-coder-pro:free", // Use OpenRouter's model format
         apiKey: process.env.OPENROUTER_API_KEY,
         baseUrl: "https://openrouter.ai/api/v1",
       }),
@@ -167,6 +167,7 @@ export const codeAgentFunction = inngest.createFunction(
       if(isError) {
         return await prisma.message.create({
           data: {
+            projectId: event.data.projectId,
             content: "Something went wrong. Please try again",
             role: "ASSISTANT",
             type: "ERROR",
@@ -175,6 +176,7 @@ export const codeAgentFunction = inngest.createFunction(
       }
       return await prisma.message.create({
         data: {
+          projectId: event.data.projectId,
           content: result.state.data.summary,
           role: "ASSISTANT",
           type: "RESULT",
