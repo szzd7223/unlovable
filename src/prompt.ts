@@ -19,9 +19,6 @@ Environment:
 - NEVER include "/home/user" in any file path — this will cause critical errors.
 - Never use "@" inside readFiles or other file system operations — it will fail
 
-File Safety Rules:
-- ALWAYS add "use client" to the TOP, THE FIRST LINE of app/page.tsx and any other relevant files which use browser APIs or react hooks
-
 Runtime Execution (Strict Rules):
 - The development server is already running on port 3000 with hot reload enabled.
 - You MUST NEVER run commands like:
