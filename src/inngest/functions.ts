@@ -27,7 +27,7 @@ export const codeAgentFunction = inngest.createFunction(
       description: "An expert coding agent",
       system: PROMPT,
       model: openai({
-        model: "google/gemini-2.0-flash-001", // Use OpenRouter's model format
+        model: "kwaipilot/kat-coder-pro:free", // Use OpenRouter's model format
         apiKey: process.env.OPENROUTER_API_KEY,
         baseUrl: "https://openrouter.ai/api/v1",
       }),
